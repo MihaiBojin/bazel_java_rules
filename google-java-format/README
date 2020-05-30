@@ -1,0 +1,8 @@
+# BEGIN google-java-format
+load("@bazel_java_rules/google-java-format:workspace.bzl", "google_java_format_deps")
+
+google_java_format_deps(
+    sha256 = "0894ee02019ee8b4acd6df09fb50bac472e7199e1a5f041f8da58d08730694aa",
+    version = "1.7",
+)
+# END google-java-format
