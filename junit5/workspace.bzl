@@ -1,21 +1,22 @@
+load("@rules_jvm_external//:specs.bzl", "maven")
 
-maven_install(
-    artifacts = [
-        maven.artifact(
-            group = "com.google.code.findbugs",
-            artifact = "jsr305",
-            version = "3.0.2",
-            neverlink = True,
-        ),
-        maven.artifact(
-            group = "com.google.errorprone",
-            artifact = "error_prone_annotations",
-            version = "2.3.4",
-            neverlink = True,
-        ),
+def junit5_workspace():
+    return [
         maven.artifact(
             group = "org.hamcrest",
             artifact = "hamcrest-library",
+            version = "2.2",
+            testonly = True,
+        ),
+        maven.artifact(
+            group = "org.hamcrest",
+            artifact = "hamcrest-core",
+            version = "2.2",
+            testonly = True,
+        ),
+        maven.artifact(
+            group = "org.hamcrest",
+            artifact = "hamcrest",
             version = "2.2",
             testonly = True,
         ),
@@ -49,20 +50,4 @@ maven_install(
             version = "1.6.2",
             testonly = True,
         ),
-        maven.artifact(
-            group = "com.uber.nullaway",
-            artifact = "nullaway",
-            version = "0.7.10",
-        ),
-        maven.artifact(
-            group = "com.google.guava",
-            artifact = "guava",
-            version = "22.0",
-        ),
-    ],
-    fetch_sources = True,
-    repositories = [
-        "https://repo1.maven.org/maven2",
-    ],
-)
-# END java dependencies
+    ]

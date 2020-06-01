@@ -1,11 +1,10 @@
 exports_files([
-    "rules.bzl",
+    "workspace.bzl",
 ])
 
-# TODO(mihaibojin): write a javadoc -> target plugin
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
 bzl_library(
-    name = "javadoc-rules",
-    srcs = ["rules.bzl"],
+    name = "errorprone-rules",
+    srcs = ["workspace.bzl"],
     visibility = ["//visibility:public"],
 )

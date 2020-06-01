@@ -24,3 +24,6 @@ def java_format(name, srcs, dry_run = False, **kwargs):
 
 # TODO(mihaibojin): refactor like https://github.com/bazelbuild/buildtools/blob/master/buildifier/def.bzl
 # using https://github.com/bazelbuild/buildtools/blob/master/buildifier/runner.bash.template
+
+# https://jin.crypt.sg/articles/bazel-rules-questions.html
+
