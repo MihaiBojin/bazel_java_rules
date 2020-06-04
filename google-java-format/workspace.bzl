@@ -1,10 +1,10 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 
-def google_java_format_workspace(version, sha256):
+def google_java_format_workspace(version = "1.7", sha256 = "0894ee02019ee8b4acd6df09fb50bac472e7199e1a5f041f8da58d08730694aa"):
     http_file(
-        name = "google-java-format",
+        name = "google-java-format-jar",
         urls = [
-            "https://github.com/google/google-java-format/releases/download/google-java-format-{version}/google-java-format-{version}-all-deps.jar".format(version = "1.7"),
+            "https://github.com/google/google-java-format/releases/download/google-java-format-{version}/google-java-format-{version}-all-deps.jar".format(version = version),
         ],
-        sha256 = "0894ee02019ee8b4acd6df09fb50bac472e7199e1a5f041f8da58d08730694aa",
+        sha256 = sha256,
     )

@@ -1,3 +1,5 @@
+workspace(name="com_github_mihaibojin_bazel_java_rules")
+
 # BEGIN https://github.com/bazelbuild/rules_jvm_external
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 

@@ -1,6 +1,7 @@
 exports_files([
     "rules.bzl",
     "workspace.bzl",
+    "runner.bash.template",
 ])
 
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")

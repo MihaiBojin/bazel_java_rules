@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+
+FORMATTER_JAR=@@FORMATTER_JAR@@
+FLAGS="@@FLAGS@@"
+SRCS="@@SRCS@@"
+
+runtime=$(readlink "$FORMATTER_JAR")
+(
+  cd "$BUILD_WORKSPACE_DIRECTORY" && \
+  echo && \
+  echo "Running google-java-format over the specified files..." && \
+  echo && \
+  (find . -type f \( -name *.java \) -print | xargs -P 7 java -jar $runtime $FLAGS) && \
+  echo \
+)

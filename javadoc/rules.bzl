@@ -1,3 +1,5 @@
+# TODO(mihaibojin): WIP; finish writing a javadoc -> target plugin
+
 def _javadoc(ctx):
     target_name = ctx.label.name
     output_jar = ctx.actions.declare_file("{}:{}-javadoc.jar".format(ctx.attr.group_id, ctx.attr.artifact_id))
