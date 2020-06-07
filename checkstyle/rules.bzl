@@ -18,12 +18,14 @@ def checkstyle(name, srcs=[],
                              that all source files contain it.
         visibility: The visibility of this rule.
     """
+
     native.genrule(
         name = name,
         srcs = srcs,
         outs = ["checkstyle.log"],
         cmd = " ".join([
             "java -classpath $(location @checkstyle//file)",
+            "-Dorg.checkstyle.google.header.file=" + license_header,
             "com.puppycrawl.tools.checkstyle.Main",
             "-c $(location " + checkstyle_xml + ")",
             "--",
