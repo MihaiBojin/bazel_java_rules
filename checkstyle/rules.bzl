@@ -23,7 +23,7 @@ def checkstyle(name, srcs=[],
         srcs = srcs,
         outs = ["checkstyle.log"],
         cmd = " ".join([
-            "echo java -classpath $(location @checkstyle//file)",
+            "java -classpath $(location @checkstyle//file)",
             "com.puppycrawl.tools.checkstyle.Main",
             "-c $(location " + checkstyle_xml + ")",
             "--",

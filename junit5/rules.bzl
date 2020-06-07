@@ -1,4 +1,4 @@
-#load("@rules_jvm_external//:defs.bzl", "artifact")
+load("@rules_jvm_external//:defs.bzl", "artifact")
 
 # For more information see
 # - https://github.com/bmuschko/bazel-examples/blob/master/java/junit5-test/BUILD
@@ -29,18 +29,18 @@ def junit5_test(name, srcs, test_package, resources = [], deps = [], runtime_dep
         main_class = "org.junit.platform.console.ConsoleLauncher",
         args = junit_console_args,
         deps = deps + [
-            "org.junit.jupiter:junit-jupiter-api",
-            "org.junit.jupiter:junit-jupiter-params",
-            "org.junit.jupiter:junit-jupiter-engine",
-            "org.hamcrest:hamcrest-library",
-            "org.hamcrest:hamcrest-core",
-            "org.hamcrest:hamcrest",
-            "org.mockito:mockito-core",
+            artifact("org.junit.jupiter:junit-jupiter-api"),
+            artifact("org.junit.jupiter:junit-jupiter-params"),
+            artifact("org.junit.jupiter:junit-jupiter-engine"),
+            artifact("org.hamcrest:hamcrest-library"),
+            artifact("org.hamcrest:hamcrest-core"),
+            artifact("org.hamcrest:hamcrest"),
+            artifact("org.mockito:mockito-core"),
         ],
         visibility = ["//java:__subpackages__"],
         resources = resources,
         runtime_deps = runtime_deps + [
-            "org.junit.platform:junit-platform-console",
+            artifact("org.junit.platform:junit-platform-console"),
         ],
         **kwargs
     )
