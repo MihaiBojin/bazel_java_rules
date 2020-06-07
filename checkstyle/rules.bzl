@@ -26,6 +26,8 @@ def checkstyle(name, srcs=[],
         cmd = " ".join([
             "java -classpath $(location @checkstyle//file)",
             "-Dorg.checkstyle.google.header.file=$(location " + license_header + ")",
+            "-Dorg.checkstyle.google.suppressionfilter.config=$(location " + checkstyle_suppressions + ")",
+            "-Dorg.checkstyle.google.suppressionxpathfilter.config=$(location " + checkstyle_xpath_suppressions + ")",
             "com.puppycrawl.tools.checkstyle.Main",
             "-c $(location " + checkstyle_xml + ")",
             "--",
