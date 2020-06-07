@@ -1,6 +1,9 @@
 # TODO(mihaibojin): WIP; finish writing a javadoc -> target plugin
 
 def _javadoc(ctx):
+    """
+    Rule implementation for generating javadoc for the specified sources
+    """
     target_name = ctx.label.name
     output_jar = ctx.actions.declare_file("{}:{}-javadoc.jar".format(ctx.attr.group_id, ctx.attr.artifact_id))
 
@@ -26,6 +29,7 @@ def _javadoc(ctx):
         DefaultInfo(files = depset([output_jar])),
     ]
 
+"""Defines the javadoc generation rule"""
 javadoc = rule(
     implementation = _javadoc,
     attrs = {

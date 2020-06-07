@@ -5,8 +5,8 @@
 Add the library to your workspace:
 
 ```
-load("@com_github_mihaibojin_bazel_java_rules//google-java-format:workspace.bzl", "google_java_format_workspace")
-google_java_format_workspace()
+load("@com_github_mihaibojin_bazel_java_rules//google-java-format:workspace.bzl", "google_java_format_jar")
+google_java_format_jar()
 ```
 
 

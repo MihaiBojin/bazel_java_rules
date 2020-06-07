@@ -1,6 +1,7 @@
 load("@rules_jvm_external//:specs.bzl", "maven")
 
 def errorprone_workspace():
+    """Returns the list of dependencies useful to errorprone"""
     return [
        maven.artifact(
            group = "com.google.code.findbugs",

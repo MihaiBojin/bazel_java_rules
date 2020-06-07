@@ -1,6 +1,7 @@
 load("@rules_jvm_external//:specs.bzl", "maven")
 
 def junit5_workspace():
+    """Defines the JUNIT5 dependencies to be loaded with maven_install"""
     return [
         maven.artifact(
             group = "org.hamcrest",

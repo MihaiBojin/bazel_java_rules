@@ -23,21 +23,33 @@ git_repository(
 3\. Configure the workspace with the desired rules, e.g.:
 
 ```
-load("@bazel_java_rules/google-java-format:workspace.bzl", "google_java_format_workspace")
-load("@bazel_java_rules/errorprone:workspace.bzl", "errorprone_workspace")
-...
+# Load the desired tools 
+load("@com_github_mihaibojin_bazel_java_rules//google-java-format:workspace.bzl", "google_java_format_jar")
+google_java_format_jar()
 
-# Then add the required deps to your maven install command
-load("@rules_jvm_external//:defs.bzl", "maven_install")
+load("@com_github_mihaibojin_bazel_java_rules//checkstyle:workspace.bzl", "checkstyle_jar")
+checkstyle_jar()
 
+# And load the necessary dependencies via maven_install
+load("@com_github_mihaibojin_bazel_java_rules//errorprone:workspace.bzl", "errorprone_workspace")
+load("@com_github_mihaibojin_bazel_java_rules//nullaway:workspace.bzl", "nullaway_workspace")
+load("@com_github_mihaibojin_bazel_java_rules//junit5:workspace.bzl", "junit5_workspace")
+
+# BEGIN java dependencies
+load("@rules_jvm_external//:specs.bzl", "maven")
 maven_install(
-    artifacts = [] + google_java_format_workspace(),
+    artifacts =
+        [...] +
+        errorprone_workspace() +
+        nullaway_workspace() +
+        junit5_workspace(),
     fetch_sources = True,
     strict_visibility = True,
     repositories = [
         "https://repo1.maven.org/maven2",
     ],
 )
+# END java dependencies
 ```
 
 4\. Finally, call the desired rules in your BUILD targets, e.g.

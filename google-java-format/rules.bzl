@@ -2,6 +2,7 @@ load("@bazel_skylib//lib:shell.bzl", "shell")
 
 # Adapted from this great example: https://github.com/bazelbuild/buildtools/blob/master/buildifier/def.bzl
 def _java_format(ctx):
+    """Rule implementation for running google-java-format"""
     # extract all files
     src_files = []
     for src in ctx.attr.srcs:
@@ -42,7 +43,7 @@ def _java_format(ctx):
         executable = generated_runner_bash,
     )]
 
-
+"""Defines the java_format rule that runs google-java-formatter"""
 java_format = rule(
     implementation = _java_format,
     attrs = {

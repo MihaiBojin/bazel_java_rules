@@ -1,6 +1,6 @@
 ```
-load("@bazel_java_rules/nullaway:rules.bzl", "define_nullaway_plugin")
-define_nullaway_plugin()
+load("@bazel_java_rules/nullaway:rules.bzl", "nullaway_plugin")
+nullaway_plugin()
 
 java_library(
     javacopts = [
