@@ -25,7 +25,7 @@ def checkstyle(name, srcs=[],
         outs = ["checkstyle.log"],
         cmd = " ".join([
             "java -classpath $(location @checkstyle//file)",
-            "-Dorg.checkstyle.google.header.file=" + license_header,
+            "-Dorg.checkstyle.google.header.file=$(location " + license_header + ")",
             "com.puppycrawl.tools.checkstyle.Main",
             "-c $(location " + checkstyle_xml + ")",
             "--",
