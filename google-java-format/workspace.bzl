@@ -1,6 +1,6 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 
-def google_java_format_jar(version = "1.7", sha256 = "0894ee02019ee8b4acd6df09fb50bac472e7199e1a5f041f8da58d08730694aa"):
+def google_java_format_jar(version = "1.8", sha256 = "29c864e58db8784028f4871fa4ef1e9cfcc0e5b9939ead09c7f1fc59e64737be"):
     """Downloads the google-java-format JAR"""
     http_file(
         name = "google-java-format-jar",
