@@ -8,9 +8,10 @@ SRCS="@@SRCS@@"
 runtime=$(readlink "$FORMATTER_JAR")
 (
   cd "$BUILD_WORKSPACE_DIRECTORY" && \
+  if [ -z "$SRCS" ]; then SRCS="$(find . -type f \( -name *.java \) -print)"; fi && \
   echo && \
-  echo "Running google-java-format over the specified files..." && \
+  echo "Running google-java-format in $BUILD_WORKSPACE_DIRECTORY..." && \
   echo && \
-  (find . -type f \( -name *.java \) -print | xargs -P 7 java -jar $runtime $FLAGS) && \
+  (echo $SRCS | xargs -n 100 -P 7 -t java -jar "$runtime" $FLAGS) && \
   echo \
 )
